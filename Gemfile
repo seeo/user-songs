@@ -20,6 +20,8 @@ gem 'bootstrap-sass'
 gem 'devise'
 #installing devise gem so that can do user obboarding quickly
 
+gem 'jquery-turbolinks'
+
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
