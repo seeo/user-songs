@@ -1,6 +1,8 @@
 class SongsController < ApplicationController
 before_action :authenticate_user!, :except => [ :show, :index ]
+
   def index
+
     @songs = Song.all
     respond_to do |format|
       format.html # index.html.erb
