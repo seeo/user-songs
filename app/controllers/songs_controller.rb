@@ -7,6 +7,7 @@ before_action :authenticate_user!, :except => [ :show, :index ]
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @songs }
+
     end
   end
 
