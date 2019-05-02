@@ -1,3 +1,12 @@
+<div class="jumbotron">
+  <h1 class="display-4">Ensemble</h1>
+  <p class="lead">Listen to music from anytime in history</p>
+  <hr class="my-4">
+  <p>Yes, even cavemen music </p>
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+  </p>
+
 <p>Songs</p>
 	<div class="container">
   	<div class="row">
@@ -22,8 +31,9 @@
 	</div>
 </div>
 
+<% if user_signed_in? %>
+	<%= link_to 'Add New Song', new_song_path %>
+<% end %><br/>
+
 <img src = "<%= image_url 'raw-run.jpg' %>"/>
 
-<% if user_signed_in? %>
-	<%= link_to 'New Song', new_song_path %>
-<% end %>
