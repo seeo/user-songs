@@ -17,6 +17,10 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'mini_racer', platforms: :ruby
 gem 'bootstrap-sass'
 
+gem 'bootstrap', '~> 4.1.0'
+
+gem 'jquery-rails'
+
 gem 'devise'
 #installing devise gem so that can do user obboarding quickly
 
