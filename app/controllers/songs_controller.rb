@@ -30,8 +30,8 @@ before_action :authenticate_user!, :except => [ :show, :index ]
 
   def create
     @song = Song.new(song_params)
-    @uploaded_file = params[:song][:picture].path
-    @cloudinary_file = Cloudinary::Uploader.upload(uploaded_file)
+    uploaded_file = params[:song][:picture].path
+    cloudinary_file = Cloudinary::Uploader.upload(uploaded_file)
 
     #store this public_id value to the database
     #cloudinary_file['public_id']
@@ -64,6 +64,6 @@ before_action :authenticate_user!, :except => [ :show, :index ]
 
   private
     def song_params
-      params.require(:song).permit(:title, :picture)
+      params.require(:song).permit(:title)
     end
 end

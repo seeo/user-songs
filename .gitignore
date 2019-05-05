@@ -27,3 +27,6 @@
 
 #Ignore cloudinary key
 app-env
+
+#Ignore cloudinary.yml file (must include the extension yml or gitignore will not ignore)
+/config/cloudinary.yml
