@@ -24,6 +24,12 @@
 						<td><%= song.id %></td>
           	<td class = "song-title"><%= song.title %></td>
           	<td><%= song.created_at.strftime('%d.%m.%Y') %></td>
+						<td>
+    					<%= link_to 'Show', song_path(song)%>
+    				</td>
+    				<td>
+    					<%= link_to 'Edit', edit_song_path(song)%>
+    				</td>
 					</tr>
 				<% end %>
 			</tbody>

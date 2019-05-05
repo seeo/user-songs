@@ -1,0 +1,16 @@
+<h1>Edit Song</h1>
+
+<%= form_with scope: :song, model: @song, local: true do |form| %>
+  <p>
+    <%= form.label :title, 'Song Name' %><br>
+    <%= form.text_field :title %><br>
+		<%= form.label :picture %><br>
+    <%= form.file_field :picture %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
+<br/>
+<%= link_to 'Back', song_path, class: 'btn btn-primary' %>
