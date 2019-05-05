@@ -36,7 +36,7 @@ before_action :authenticate_user!, :except => [ :show, :index ]
     #store this public_id value to the database
     #cloudinary_file['public_id']
 
-    render json: cloudinary_file
+    # render json: cloudinary_file
 
     if @song.save
       redirect_to @song
