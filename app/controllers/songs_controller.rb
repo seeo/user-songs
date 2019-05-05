@@ -30,6 +30,13 @@ before_action :authenticate_user!, :except => [ :show, :index ]
 
   def create
     @song = Song.new(song_params)
+    @uploaded_file = params[:song][:picture].path
+    @cloudinary_file = Cloudinary::Uploader.upload(uploaded_file)
+
+    #store this public_id value to the database
+    #cloudinary_file['public_id']
+
+    render json: cloudinary_file
 
     if @song.save
       redirect_to @song
@@ -41,7 +48,7 @@ before_action :authenticate_user!, :except => [ :show, :index ]
   def update
     @song = Song.find(params[:id])
 
-    if @song.update(article_params)
+    if @song.update(song_params)
       redirect_to @song
     else
       render 'edit'
@@ -57,6 +64,6 @@ before_action :authenticate_user!, :except => [ :show, :index ]
 
   private
     def song_params
-      params.require(:song).permit(:title)
+      params.require(:song).permit(:title, :picture)
     end
 end
