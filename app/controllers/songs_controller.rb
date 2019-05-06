@@ -7,7 +7,6 @@ before_action :authenticate_user!, :except => [ :show, :index ]
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @songs }
-
     end
   end
 
@@ -36,7 +35,8 @@ before_action :authenticate_user!, :except => [ :show, :index ]
     p cloudinary_file
     p cloudinary_file["public_id"]
     #store this public_id value to the database
-    @song.attributes = {:public_id => cloudinary_file["public_id"]}
+    @song.attributes = {:image => cloudinary_file["public_id"]}
+    @song.attributes = {:user_id => current_user.id}
 
 
     # render json: cloudinary_file
