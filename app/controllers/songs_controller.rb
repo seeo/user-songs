@@ -6,6 +6,7 @@ before_action :authenticate_user!, #:except => [ :show]
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @songs }
+
     end
   end
 
@@ -67,6 +68,6 @@ before_action :authenticate_user!, #:except => [ :show]
 
   private
     def song_params
-      params.require(:song).permit(:title)
+      params.require(:song).permit(:title, :hours, :image)
     end
 end

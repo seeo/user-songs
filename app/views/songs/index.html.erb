@@ -14,8 +14,9 @@
       	<thead>
         	<tr>
           	<th scope="col">#</th>
-          	<th scope="col">title</th>
-          	<th scope="col">created</th>
+          	<th scope="col">Title</th>
+          	<th scope="col">Created</th>
+          	<th scope="col">Feeding Time</th>
         	</tr>
       	</thead>
       <tbody>
@@ -24,6 +25,13 @@
 						<td><%= song.id %></td>
           	<td class = "song-title"><%= song.title %></td>
           	<td><%= song.created_at.strftime('%d.%m.%Y') %></td>
+						<td>
+						<% if song.hours == nil %>
+							<%= '' %>
+						<% else %>
+							<%= song.hours.strftime("%I:%M%p") %>
+						<% end %>
+						</td>
 						<td>
     					<%= link_to 'Show', song_path(song)%>
     				</td>

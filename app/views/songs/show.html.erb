@@ -1,7 +1,18 @@
-<p>Song:</p>
+<h4>Song:</h4>
 	<%= cl_image_tag(@song.image) %>
 
+<h5> Song Title: </h5>
 <p>
-  <%= @song.title %>
+  <%= @song.title %> <br>
 </p>
-<%= link_to 'Back', songs_path %>
+
+<h5> Hours:</h5>
+<p>
+	<% if @song.hours == nil %>
+		<%= '' %>
+	<% else %>
+		<%= @song.hours.strftime("%I:%M%p") %>
+	<% end %>
+</p>
+<%= link_to 'Back', songs_path, class: 'btn btn-primary' %> |
+<%= link_to 'Edit',  edit_song_path, class: 'btn btn-secondary' %>
