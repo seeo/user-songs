@@ -38,6 +38,11 @@
     				<td>
     					<%= link_to 'Edit', edit_song_path(song)%>
     				</td>
+						<td>
+							<%= link_to 'Destroy', song_path(song),
+        			method: :delete,
+        			data: { confirm: 'Are you sure you want to delete this song?' } %>
+						</td>
 					</tr>
 				<% end %>
 			</tbody>

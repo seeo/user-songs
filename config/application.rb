@@ -13,6 +13,7 @@ module UserSongs
 
     #set time zone to be Singapore
     config.time_zone = 'Singapore'
+    config.active_record.time_zone_aware_types = [:datetime, :time]
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers

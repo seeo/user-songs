@@ -63,7 +63,7 @@ before_action :authenticate_user!, #:except => [ :show]
     @song = Song.find(params[:id])
     @song.destroy
 
-    redirect_to articles_path
+    redirect_to songs_path
   end
 
   private
