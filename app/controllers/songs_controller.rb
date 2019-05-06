@@ -35,8 +35,9 @@ before_action :authenticate_user!, :except => [ :show, :index ]
     cloudinary_file = Cloudinary::Uploader.upload(uploaded_file)
     p cloudinary_file
     p cloudinary_file["public_id"]
-    @song.attributes = {:public_id => cloudinary_file["public_id"]}
     #store this public_id value to the database
+    @song.attributes = {:public_id => cloudinary_file["public_id"]}
+
 
     # render json: cloudinary_file
     # @song["public_id"] = cloudinary_file["public_id"]
