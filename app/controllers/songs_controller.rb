@@ -1,9 +1,8 @@
 class SongsController < ApplicationController
-before_action :authenticate_user!, :except => [ :show, :index ]
+before_action :authenticate_user!, #:except => [ :show]
 
   def index
-
-    @songs = Song.all
+    @songs = current_user.songs
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @songs }
