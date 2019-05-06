@@ -14,6 +14,7 @@ before_action :authenticate_user!, :except => [ :show, :index ]
   def show
     @song = Song.find(params[:id])
 
+    p @song
     respond_to do |format|
       format.html
       format.json { render json: @song }
@@ -32,12 +33,14 @@ before_action :authenticate_user!, :except => [ :show, :index ]
     @song = Song.new(song_params)
     uploaded_file = params[:song][:picture].path
     cloudinary_file = Cloudinary::Uploader.upload(uploaded_file)
-
+    p cloudinary_file
+    p cloudinary_file["public_id"]
+    @song.attributes = {:public_id => cloudinary_file["public_id"]}
     #store this public_id value to the database
-    #cloudinary_file['public_id']
 
     # render json: cloudinary_file
-
+    # @song["public_id"] = cloudinary_file["public_id"]
+    p @song
     if @song.save
       redirect_to @song
     else
