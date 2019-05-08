@@ -31,6 +31,8 @@ before_action :authenticate_user!, #:except => [ :show]
   def create
     @song = Song.new(song_params)
     uploaded_file = params[:song][:picture].path
+    p params
+    p uploaded_file
     cloudinary_file = Cloudinary::Uploader.upload(uploaded_file)
     p cloudinary_file
     p cloudinary_file["public_id"]
@@ -51,6 +53,9 @@ before_action :authenticate_user!, #:except => [ :show]
 
   def update
     @song = Song.find(params[:id])
+    uploaded_file = params[:song][:picture].path
+    cloudinary_file = Cloudinary::Uploader.upload(uploaded_file)
+    @song.attributes = {:image => cloudinary_file["public_id"]}
 
     if @song.update(song_params)
       redirect_to @song
