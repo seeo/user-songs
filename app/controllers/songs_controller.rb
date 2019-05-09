@@ -53,8 +53,14 @@ before_action :authenticate_user!, #:except => [ :show]
 
   def update
     @song = Song.find(params[:id])
+    p @song.image
     uploaded_file = params[:song][:picture].path
-    cloudinary_file = Cloudinary::Uploader.upload(uploaded_file)
+    p uploaded_file
+    cloudinary_file = Cloudinary::Uploader.upload(uploaded_file, :folder => "user-songs")
+
+    p cloudinary_file
+    p cloudinary_file["url"]
+
     @song.attributes = {:image => cloudinary_file["public_id"]}
 
     if @song.update(song_params)
