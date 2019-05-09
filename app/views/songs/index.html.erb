@@ -17,6 +17,7 @@
           	<th scope="col">Title</th>
           	<th scope="col">Created</th>
           	<th scope="col">Feeding Time</th>
+          	<th scope="col">Thumb Nails</th>
         	</tr>
       	</thead>
       <tbody>
@@ -32,6 +33,7 @@
 							<%= song.hours.strftime("%I:%M%p") %>
 						<% end %>
 						</td>
+						<td> <%= cl_image_tag(song.image, :width => 50, :height => 50)%></td>
 						<td>
     					<%= link_to 'Show', song_path(song)%>
     				</td>

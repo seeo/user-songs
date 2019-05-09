@@ -7,7 +7,8 @@
 		<%= form.label :hours %><br>
 		<%= form.time_field :hours %><br>
 		<%= form.label :picture %><br>
-    <%= form.file_field :picture %>
+		<%= cl_image_tag(@song.image) %><br>
+    <%= form.file_field :picture %><br>
   </p>
   <p>
     <%= form.submit %>

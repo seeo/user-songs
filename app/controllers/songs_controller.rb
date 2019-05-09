@@ -33,7 +33,7 @@ before_action :authenticate_user!, #:except => [ :show]
     uploaded_file = params[:song][:picture].path
     p params
     p uploaded_file
-    cloudinary_file = Cloudinary::Uploader.upload(uploaded_file)
+    cloudinary_file = Cloudinary::Uploader.upload(uploaded_file, :folder => "user-songs")
     p cloudinary_file
     p cloudinary_file["public_id"]
     #store this public_id value to the database
@@ -67,7 +67,6 @@ before_action :authenticate_user!, #:except => [ :show]
   def destroy
     @song = Song.find(params[:id])
     @song.destroy
-
     redirect_to songs_path
   end
 
