@@ -6,7 +6,6 @@ before_action :authenticate_user!, #:except => [ :show]
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @songs }
-
     end
   end
 
@@ -53,20 +52,24 @@ before_action :authenticate_user!, #:except => [ :show]
 
   def update
     @song = Song.find(params[:id])
-    p @song.image
-    uploaded_file = params[:song][:picture].path
-    p uploaded_file
-    cloudinary_file = Cloudinary::Uploader.upload(uploaded_file, :folder => "user-songs")
 
-    p cloudinary_file
-    p cloudinary_file["url"]
+    if params[:song][:picture]
+      uploaded_file = params[:song][:picture].path
+      p uploaded_file
+      cloudinary_file = Cloudinary::Uploader.upload(uploaded_file, :folder => "user-songs")
 
-    @song.attributes = {:image => cloudinary_file["public_id"]}
+      p cloudinary_file
+      p cloudinary_file["url"]
+
+      @song.attributes = {:image => cloudinary_file["public_id"]}
+    else
+      song_params[:image] = @song.image
+    end
 
     if @song.update(song_params)
       redirect_to @song
     else
-      render 'edit'
+      render 'songs/edit'
     end
   end
 
