@@ -4,4 +4,10 @@ Rails.application.routes.draw do
   resources :songs
 
   root to: 'songs#index'
+
+  get 'reset' => 'passwords#new'
+  post 'reset' => 'passwords#create'
+  get 'reset/:code' => 'passwords#edit', as: :reset_code
+  put 'reset/:code' => 'passwords#update'
+
 end

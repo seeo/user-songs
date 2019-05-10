@@ -53,7 +53,7 @@ before_action :authenticate_user!, #:except => [ :show]
   def update
     @song = Song.find(params[:id])
 
-    if params[:song][:picture]
+    if params[:song][:picture] #insert this into quickpint
       uploaded_file = params[:song][:picture].path
       p uploaded_file
       cloudinary_file = Cloudinary::Uploader.upload(uploaded_file, :folder => "user-songs")
@@ -63,7 +63,7 @@ before_action :authenticate_user!, #:except => [ :show]
 
       @song.attributes = {:image => cloudinary_file["public_id"]}
     else
-      song_params[:image] = @song.image
+      song_params[:image] = @song.image #insert this into quickpint
     end
 
     if @song.update(song_params)
