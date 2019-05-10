@@ -1,0 +1,10 @@
+<h1>Reset Password</h1>
+
+<%= form_with scope: :reset, url: reset_path do |form| %>
+<p>
+  <%= form.email_field :email, placeholder: 'Enter your email' %>
+</p>
+<p>
+  <%= form.submit 'Send Reset Email' %>
+</p>
+<% end %>
