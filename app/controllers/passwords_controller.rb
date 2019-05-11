@@ -6,6 +6,7 @@ class PasswordsController < ApplicationController
   def edit
   end
 
+  #this part of code from SEI1 gitbook: Make sure that we can find the user and set a reset code if found.
   def create
     user = User.find_by_email(params[:email])
     if user

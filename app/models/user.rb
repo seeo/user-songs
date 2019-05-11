@@ -12,6 +12,7 @@ class User < ApplicationRecord
     end
     has_many :songs
 
+    #this part from SEI1 gitbook, Let's also add a method to our User model to set the password reset functionality. We'll do this by generating a reset code, setting an expiration date, and saving the user.
     def set_password_reset
     # this will ensure users with duplicate codes
     self.reset_code = loop do
