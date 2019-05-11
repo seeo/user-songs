@@ -81,6 +81,6 @@ before_action :authenticate_user!, #:except => [ :show]
 
   private
     def song_params
-      params.require(:song).permit(:title, :hours, :image)
+      params.require(:song).permit(:title, :hours, :image) #
     end
 end
