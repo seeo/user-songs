@@ -32,6 +32,8 @@ gem 'cloudinary'
 # source for figaro: https://launchschool.com/blog/managing-environment-configuration-variables-in-rails
 gem 'figaro'
 
+gem 'mailgun-ruby', '~>1.0.2', require: 'mailgun'
+
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
