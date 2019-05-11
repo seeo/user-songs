@@ -31,5 +31,5 @@ app-env
 #Ignore cloudinary.yml file (must include the extension yml or gitignore will not ignore)
 /config/cloudinary.yml
 
-#Ignore application.yml file that stores gmail (must include the extension yml or gitignore will not ignore)
+# Ignore application configuration
 /config/application.yml
