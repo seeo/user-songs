@@ -1,2 +1,10 @@
-<h1>Passwords#edit</h1>
-<p>Find me in app/views/passwords/edit.html.erb</p>
+<h1>Enter New Password</h1>
+
+<%= form_with scope: :reset, url: reset_code_path(@code), method: :put do |form| %>
+	<p>
+		<%= form.password_field :password %>
+	</p>
+	<p>
+		<%= form.submit 'Reset Password' %>
+	</p>
+<% end %>
