@@ -29,6 +29,7 @@ before_action :authenticate_user!, #:except => [ :show]
 
   def create
     @song = Song.new(song_params)
+    @user = current_user
     uploaded_file = params[:song][:picture].path
     p params
     p uploaded_file
@@ -45,6 +46,7 @@ before_action :authenticate_user!, #:except => [ :show]
     p @song
     if @song.save
       redirect_to @song
+      ExampleMailer.sample_email(@user).deliver_now
     else
       render 'new'
     end

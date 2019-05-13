@@ -5,7 +5,7 @@ class ExampleMailer < ApplicationMailer
     mg_client = Mailgun::Client.new ENV['mailgun_api_key']
     message_params = {:from    => ENV['gmail_username'],
                       :to      => @user.email,
-                      :subject => 'Sample Mail using Mailgun API',
+                      :subject => 'Sample Mail using Mailgun API - user-songs; you added a song',
                       :text    => 'This mail is sent using Mailgun API via mailgun-ruby'}
     mg_client.send_message ENV['domain'], message_params
   end
